@@ -19,9 +19,6 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
-  app.get('/*', (req, res) => {
-    res.sendFile(__dirname +'/client/build/index.html');
-  })
 }
 
 // Database configuration with mongoose
