@@ -1,9 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import TodoApp from './components/TodoApp.js';
+import { browserHistory, Router } from 'react-router';
+import routes from './routes.js';
+import configureStore from './configureStore';
 
 render(
-  <TodoApp />, 
+  <Router history={browserHistory} routes={routes} />, 
   document.getElementById('root')
 );

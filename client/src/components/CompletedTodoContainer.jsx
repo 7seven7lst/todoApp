@@ -1,15 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import TodoList from './TodoList.js';
+import TodoList from './TodoList.jsx';
 
-class TodoApp extends React.Component {
+class CompletedTodoContainer extends React.Component {
 
   /**
    * Class constructor.
    */
   constructor(props) {
     super(props);
-
     this.state = {
       todos: []
     };
@@ -19,7 +18,7 @@ class TodoApp extends React.Component {
    * This method will be executed after initial rendering.
    */
   componentDidMount() {
-    axios.get('/api/todos')
+    axios.get('/api/todos?status=complete')
     .then(result=>{
       console.log("result is >>>", result.data);
       this.setState({
@@ -27,6 +26,7 @@ class TodoApp extends React.Component {
       })
     })
   }
+
 
   /**
    * Render the component.
@@ -41,4 +41,4 @@ class TodoApp extends React.Component {
 
 }
 
-export default TodoApp;
+export default CompletedTodoContainer;
